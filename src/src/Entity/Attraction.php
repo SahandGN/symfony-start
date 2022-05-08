@@ -25,7 +25,7 @@ class Attraction
     #[ORM\Column(type: 'integer')]
     private $score;
 
-    #[ORM\Column(type: 'datetime')]
+    #[ORM\Column(type: 'datetime_immutable')]
     private $createdAt;
 
     #[ORM\Column(type: 'datetime_immutable')]

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Esfahan Attractions{% endblock %}
+    {% block body %}
+        <form method="post">
+            <div>
+                <label>Name: </label>
+                <input name="name" type="text"/>
+            </div>
+            <div>
+                <label>Short description: </label>
+                <input name="short_description" type="text"/>
+            </div>
+            <div>
+                <label>Full description: </label>
+                <input name="full_description" type="text"/>
+            </div>
+            <div>
+                <label>Score: </label>
+                <input name="score" type="number"/>
+            </div>
+            <input type="submit">
+        </form>
+
+
+    {% endblock %}

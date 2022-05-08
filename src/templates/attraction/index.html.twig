@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Esfahan Attractions{% endblock %}
+    {% block body %}
+        {% if attractions is empty %}
+            <h2>There is no attraction here</h2>
+        {% else %}
+
+            <ul>
+                {% for attraction in attractions %}
+                    <li>
+                        <a href="{{ path('app_attraction_view',{id: attraction.id} )}}">{{ attraction.name }}</a>
+                        ({{ attraction.score }})
+                        <a href="{{ path('app_attraction_edit',{id: attraction.id} )}}">edit</a>
+                        <a href="{{ path('app_attraction_delete',{id: attraction.id} )}}">delete</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endblock %}
