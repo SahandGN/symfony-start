@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Hotel{% endblock %}
+{% block title %}Edit {{ hotel.name }}{% endblock %}
 
 {% block body %}
-    <h1>Edit Hotel</h1>
+    <h1>Edit {{ hotel.name }}</h1>
 
     {{ include('hotel/_form.html.twig', {'button_label': 'Update'}) }}
 

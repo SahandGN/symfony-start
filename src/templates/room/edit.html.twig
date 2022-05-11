@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Room{% endblock %}
+{% block title %}Edit {{ room.roomNumber }}{% endblock %}
 
 {% block body %}
-    <h1>Edit Room</h1>
+    <h1>Edit {{ room.roomNumber }}</h1>
 
     {{ include('room/_form.html.twig', {'button_label': 'Update'}) }}
 

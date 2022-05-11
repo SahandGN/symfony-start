@@ -1,7 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Edit Message{% endblock %}
-
+    {% block stylesheets %}
+        {{ parent() }}
+        {{ encore_entry_link_tags('message') }}
+    {% endblock %}
+    {% block javascripts %}
+        {{ parent() }}
+        {{ encore_entry_script_tags('message') }}
+    {% endblock %}
 {% block body %}
     <h1>Edit Message</h1>
 

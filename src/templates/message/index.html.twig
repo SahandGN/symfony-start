@@ -1,11 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Message index{% endblock %}
-
+{% block title %}Messages list{% endblock %}
+    {% block stylesheets %}
+        {{ parent() }}
+        {{ encore_entry_link_tags('message') }}
+    {% endblock %}
+    {% block javascripts %}
+        {{ parent() }}
+        {{ encore_entry_script_tags('message') }}
+    {% endblock %}
 {% block body %}
-    <h1>Message index</h1>
 
-    <table class="table">
+    <h1>Message list</h1>
+    <div class="logo">
+        <img src="{{asset('build/images/isfahan.png')}}">
+    </div>
+    <table class="table table-dark table-striped">
         <thead>
             <tr>
                 <th>Id</th>
@@ -25,8 +35,8 @@
                 <td>{{ message.subject }}</td>
                 <td>{{ message.message }}</td>
                 <td>
-                    <a href="{{ path('app_message_show', {'id': message.id}) }}">show</a>
-                    <a href="{{ path('app_message_edit', {'id': message.id}) }}">edit</a>
+                    <a type="button" class="btn btn-primary" href="{{ path('app_message_show', {'id': message.id}) }}">show</a>
+                    <a type="button" class="btn btn-danger" href="{{ path('app_message_edit', {'id': message.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -37,5 +47,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_message_new') }}">Create new</a>
+    <a type="button" class="btn btn-light" href="{{ path('app_message_new') }}">Create new</a>
 {% endblock %}

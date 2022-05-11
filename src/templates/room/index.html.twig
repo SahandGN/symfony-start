@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Room index{% endblock %}
+{% block title %}Rooms list{% endblock %}
 
 {% block body %}
-    <h1>Room index</h1>
+    <h1>Rooms list</h1>
 
     <table class="table">
         <thead>
@@ -25,8 +25,8 @@
                 <td>{{ room.bedNumber }}</td>
                 <td>{{ room.isEmpty ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('app_room_show', {'id': room.id}) }}">show</a>
-                    <a href="{{ path('app_room_edit', {'id': room.id}) }}">edit</a>
+                    <a type="button" class="btn btn-outline-primary" href="{{ path('app_room_show', {'id': room.id}) }}">show</a>
+                    <a type="button" class="btn btn-outline-warning" href="{{ path('app_room_edit', {'id': room.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -37,5 +37,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_room_new') }}">Create new</a>
+    <a type="button" class="btn btn-light" href="{{ path('app_room_new') }}">Create new</a>
 {% endblock %}

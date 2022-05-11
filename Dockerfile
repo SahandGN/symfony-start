@@ -4,9 +4,23 @@ FROM php:8.1-apache
 # https://hub.docker.com/_/php
 RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
 
+RUN curl https://deb.nodesource.com/setup_12.x | bash
+RUN curl https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+
+RUN apt-get update && apt-get install -y nodejs yarn postgresql-client
+
+
+#RUN apk add --update nodejs-current npm;
+#RUN npm install -g yarn;
+
+
+
 # install composer
 # https://stackoverflow.com/a/58694421/1593188
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+
+
 
 # install git
 RUN apt-get -y update && apt-get -y install git
