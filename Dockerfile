@@ -4,15 +4,10 @@ FROM php:8.1-apache
 # https://hub.docker.com/_/php
 RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
 
-RUN curl https://deb.nodesource.com/setup_12.x | bash
-RUN curl https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+#RUN curl https://deb.nodesource.com/setup_12.x | bash
+#RUN curl https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+#RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 
-RUN apt-get update && apt-get install -y nodejs yarn postgresql-client
-
-
-#RUN apk add --update nodejs-current npm;
-#RUN npm install -g yarn;
 
 
 
@@ -27,6 +22,11 @@ RUN apt-get -y update && apt-get -y install git
 
 #install pdo
 RUN docker-php-ext-install mysqli pdo pdo_mysql
+
+#install yarn
+RUN apt-get install -y nodejs npm
+RUN npm install --global yarn
+
 
 # install xdebug
 # https://hub.docker.com/_/php
