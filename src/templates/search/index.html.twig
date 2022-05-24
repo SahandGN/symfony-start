@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Search for {{ query }}{% endblock %}
+
+{% block body %}
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Stars</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for hotel in hotels %}
+        <tr>
+            <td>{{ hotel.id }}</td>
+            <td>{{ hotel.name }}</td>
+            <td>{{ hotel.address }}</td>
+            <td>{{ hotel.phone }}</td>
+            <td>{{ hotel.stars }}</td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="6">no records found</td>
+        </tr>
+    {% endfor %}
+{% endblock %}
