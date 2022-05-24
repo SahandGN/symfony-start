@@ -9,8 +9,9 @@ class AboutController extends AbstractController
 {
     /**
      *
-     * @Route("/about")
+     * @Route("/about", name="aboutus")
      * @return void
+     *
      */
     public function about()
     {
