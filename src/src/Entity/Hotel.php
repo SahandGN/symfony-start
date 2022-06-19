@@ -2,8 +2,10 @@
 
 namespace App\Entity;
 
+use App\Model\LiableUserInterface;
 use App\Model\TimeInterface;
 use App\Model\TimeTrait;
+use App\Model\LiableUserTrait;
 use App\Repository\HotelRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -11,9 +13,11 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: HotelRepository::class)]
-class Hotel implements TimeInterface
+class Hotel implements TimeInterface, LiableUserInterface
 {
     use TimeTrait;
+    use LiableUserTrait;
+
 
 
     #[ORM\Id]

@@ -31,8 +31,11 @@ services:
   App\EventSubscriber\TimeSubscriber:
     tags:
       - name: 'doctrine.event_subscriber'
-
-
         priority: 500
+        connection: 'default'
 
+  App\EventSubscriber\LiableUserSubscriber:
+    tags:
+      - name: 'doctrine.event_subscriber'
+        priority: 500
         connection: 'default'

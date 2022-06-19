@@ -2,16 +2,20 @@
 
 namespace App\Entity;
 
+use App\Model\LiableUserInterface;
 use App\Model\TimeInterface;
 use App\Model\TimeTrait;
+use App\Model\LiableUserTrait;
 use App\Repository\RoomRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: RoomRepository::class)]
-class Room implements TimeInterface
+class Room implements TimeInterface, LiableUserInterface
 {
     use TimeTrait;
+    use LiableUserTrait;
+
 
     #[ORM\Id]
     #[ORM\GeneratedValue]

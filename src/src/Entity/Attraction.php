@@ -2,16 +2,20 @@
 
 namespace App\Entity;
 
+use App\Model\LiableUserInterface;
 use App\Model\TimeInterface;
 use App\Model\TimeTrait;
+use App\Model\LiableUserTrait;
 use App\Repository\AttractionRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: AttractionRepository::class)]
-class Attraction implements TimeInterface
+class Attraction implements TimeInterface, LiableUserInterface
 {
 
     use TimeTrait;
+    use LiableUserTrait;
+
 
     #[ORM\Id]
     #[ORM\GeneratedValue]

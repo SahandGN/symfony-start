@@ -2,16 +2,20 @@
 
 namespace App\Entity;
 
+use App\Model\LiableUserInterface;
 use App\Model\TimeInterface;
 use App\Model\TimeTrait;
+use App\Model\LiableUserTrait;
 use App\Repository\MessageRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: MessageRepository::class)]
-class Message implements TimeInterface
+class Message implements TimeInterface, LiableUserInterface
 {
     use TimeTrait;
+    use LiableUserTrait;
+
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
