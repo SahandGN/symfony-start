@@ -8,7 +8,9 @@ use App\Model\TimeTrait;
 use App\Model\LiableUserTrait;
 use App\Repository\AttractionRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\MappedSuperclass;
 
+/** @MappedSuperclass */
 #[ORM\Entity(repositoryClass: AttractionRepository::class)]
 class Attraction implements TimeInterface, LiableUserInterface
 {
@@ -23,22 +25,16 @@ class Attraction implements TimeInterface, LiableUserInterface
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $name;
+    protected $name;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private $short_description;
+    protected $short_description;
 
     #[ORM\Column(type: 'string', length: 500, nullable: true)]
-    private $full_description;
+    protected $full_description;
 
     #[ORM\Column(type: 'integer')]
-    private $score;
-
-    #[ORM\Column(type: 'datetime_immutable')]
-    private $createdAt;
-
-    #[ORM\Column(type: 'datetime_immutable')]
-    private $updatedAt;
+    protected $score;
 
     public function getId(): ?int
     {
