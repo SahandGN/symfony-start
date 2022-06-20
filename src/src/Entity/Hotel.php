@@ -9,10 +9,13 @@ use App\Model\LiableUserTrait;
 use App\Repository\HotelRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 #[ORM\Entity(repositoryClass: HotelRepository::class)]
+#[Gedmo\SoftDeleteable(fieldName: 'deletedAt', timeAware: false, hardDelete: true)]
 class Hotel implements TimeInterface, LiableUserInterface
 {
     use TimeTrait;
@@ -46,6 +49,10 @@ class Hotel implements TimeInterface, LiableUserInterface
     #[ORM\OneToMany(mappedBy: 'hotel', targetEntity: Room::class, orphanRemoval: true)]
     private $rooms;
 
+    #[ORM\Column(name: 'deletedAt', type: Types::DATETIME_MUTABLE, nullable: true)]
+    private $deletedAt;
+
+
     public function __construct()
     {
         $this->rooms = new ArrayCollection();
@@ -59,6 +66,22 @@ class Hotel implements TimeInterface, LiableUserInterface
     public function getName(): ?string
     {
         return $this->name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDeletedAt()
+    {
+        return $this->deletedAt;
+    }
+
+    /**
+     * @param mixed $deletedAt
+     */
+    public function setDeletedAt($deletedAt): void
+    {
+        $this->deletedAt = $deletedAt;
     }
 
     public function setName(string $name): self
