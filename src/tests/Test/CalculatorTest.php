@@ -32,7 +32,7 @@ class CalculatorTest extends TestCase
      */
     public function testPower($a, $b)
     {
-        $this->assertEquals(pow($a, $b), $this->calculator->power($a, $a));
+        $this->assertEquals(pow($a, $b), $this->calculator->power($a, $b));
     }
 
     /**
