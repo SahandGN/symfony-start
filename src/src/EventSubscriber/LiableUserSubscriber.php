@@ -32,6 +32,9 @@ class LiableUserSubscriber implements EventSubscriber
     public function prePersist(LifecycleEventArgs $args)
     {
         $entity = $args->getObject();
+        if ($this->tokenStorage->getToken() == null){
+            return;
+        }
         /** @var User $user */
         $user = $this->tokenStorage->getToken()->getUser();
 

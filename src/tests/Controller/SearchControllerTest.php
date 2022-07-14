@@ -9,9 +9,9 @@ class SearchControllerTest extends WebTestCase
     public function testSomething(): void
     {
         $client = static::createClient();
-        $crawler = $client->request('GET', '/search?query=hotel');
+        $crawler = $client->request('GET', '/search?query=abbasi');
 
         $this->assertResponseIsSuccessful();
-        $this->assertSelectorTextContains('td', 'Hotel');
+        $this->assertSelectorTextContains('', 'abbasi');
     }
 }

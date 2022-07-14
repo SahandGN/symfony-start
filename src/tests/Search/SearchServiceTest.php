@@ -30,9 +30,10 @@ class SearchServiceTest extends KernelTestCase
 
         $hotel = new Hotel();
         $hotel->setName("hotel parsian sepahan");
-        $hotel->setCreatorUser($user);
-        $hotel->setUpdaterUser($user);
+        $hotel->setCreatorUser($user->getEmail());
+        $hotel->setUpdaterUser($user->getEmail());
         $entityManager->persist($hotel);
+        $entityManager->flush();
 
         $result = $searchService->searchHotel("parsian");
         $this->assertNotEmpty($result);
