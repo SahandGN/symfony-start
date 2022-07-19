@@ -1,0 +1,11 @@
+hotel_list.title: لیست هتل ها
+hotel.title: هتل ها
+hotel.Id: شناسه
+hotel.Name: نام
+hotel.Address: آدرس
+hotel.Phone: تلفن
+hotel.Stars: ستاره
+hotel.actions: گزینه ها
+hotel.button.show: نمایش
+hotel.button.edit: ویرایش
+hotel.button.create: ساخت هتل

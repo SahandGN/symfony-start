@@ -49,12 +49,12 @@ class Builder
         /**@var hotel[] hotels */
         $hotels = $this->entityManager->getRepository(Hotel::class)->findAll();
 
-        foreach ($hotels as $hotel) {
-            $hotelsMenu->addChild($hotel->getName(), [
-                'route' => 'app_hotel_index',
-                'routeParameters' => ['{id}' => $hotel->getId()]
-            ]);
-        }
+//        foreach ($hotels as $hotel) {
+//            $hotelsMenu->addChild($hotel->getName(), [
+//                'route' => 'app_hotel_index',
+//                'routeParameters' => ['{id}' => $hotel->getId()]
+//            ]);
+//        }
 
         if ($this->security->isGranted('IS_AUTHENTICATED_FULLY')) {
             $menu->addChild('Logout', ['route' => 'app_logout']);

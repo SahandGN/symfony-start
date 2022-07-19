@@ -1,22 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hotel list{% endblock %}
+{% block title %}{{ 'hotel_list.title'|trans }}{% endblock %}
 
 {% block body %}
 
-    <h1 class="text-center display-3">Hotel list</h1>
+
     <div class="logo">
         <img class="rounded mx-auto d-block" src="{{asset('build/images/isfahan.png')}}">
     </div>
+    <h1 class="text-center display-3"> {{ 'hotel.title'|trans}} </h1>
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Address</th>
-                <th>Phone</th>
-                <th>Stars</th>
-                <th>actions</th>
+                <th>{{ 'hotel.Id'|trans }}</th>
+                <th>{{ 'hotel.Name'|trans }}</th>
+                <th>{{ 'hotel.Address'|trans }}</th>
+                <th>{{ 'hotel.Phone'|trans }}</th>
+                <th>{{ 'hotel.Stars'|trans }}</th>
+                <th>{{ 'hotel.actions'|trans }}</th>
             </tr>
         </thead>
         <tbody>
@@ -28,8 +29,8 @@
                 <td>{{ hotel.phone }}</td>
                 <td>{{ hotel.stars }}</td>
                 <td>
-                    <a type="button" class="btn btn-outline-primary" href="{{ path('app_hotel_show', {'id': hotel.id}) }}">show</a>
-                    <a type="button" class="btn btn-outline-warning" href="{{ path('app_hotel_edit', {'id': hotel.id}) }}">edit</a>
+                    <a type="button" class="btn btn-outline-primary" href="{{ path('app_hotel_show', {'id': hotel.id}) }}">{{ 'hotel.button.show'|trans }}</a>
+                    <a type="button" class="btn btn-outline-warning" href="{{ path('app_hotel_edit', {'id': hotel.id}) }}">{{ 'hotel.button.edit'|trans }}</a>
                 </td>
             </tr>
         {% else %}
@@ -40,5 +41,5 @@
         </tbody>
     </table>
 
-    <a type="button" class="btn btn-light" href="{{ path('app_hotel_new') }}">Create new</a>
+    <a type="button" class="btn btn-light" href="{{ path('app_hotel_new') }}">{{ 'hotel.button.create'|trans }}</a>
 {% endblock %}

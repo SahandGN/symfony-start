@@ -1,0 +1,14 @@
+hotel_list:
+  title: Hotel list
+hotel:
+  title: Hotels
+  Id: Id
+  Name: Name
+  Address: Address
+  Phone: Phone
+  Stars: Stars
+  actions: Actions
+  button:
+    show: Show
+    edit: Edit
+    create: Create new
