@@ -9,3 +9,5 @@ hotel.actions: گزینه ها
 hotel.button.show: نمایش
 hotel.button.edit: ویرایش
 hotel.button.create: ساخت هتل
+hotel:
+  emptydb: هیچ هتلی پیدا نشد :(

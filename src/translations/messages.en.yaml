@@ -12,3 +12,4 @@ hotel:
     show: Show
     edit: Edit
     create: Create new
+  emptydb: no records found

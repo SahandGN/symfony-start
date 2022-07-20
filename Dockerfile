@@ -23,6 +23,9 @@ RUN apt-get -y update && apt-get -y install git
 #install pdo
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
+# install zip
+RUN apt-get -y install zip
+
 #install yarn
 RUN apt-get install -y nodejs npm
 RUN npm install --global yarn
